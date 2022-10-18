@@ -1,9 +1,18 @@
 import React from "react";
+import { Button, ButtonGroup } from "react-bootstrap";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const RightSideNav = () => {
   return (
     <div>
-      <h2>RightSideNav</h2>
+      <ButtonGroup vertical>
+        <Button variant="outline-primary">
+          <FaGoogle /> Login with Google
+        </Button>
+        <Button variant="outline-dark">
+          <FaGithub /> Login with Github
+        </Button>
+      </ButtonGroup>
     </div>
   );
 };
