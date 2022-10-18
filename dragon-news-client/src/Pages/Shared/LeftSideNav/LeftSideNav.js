@@ -6,12 +6,12 @@ const LeftSideNav = () => {
   useEffect(() => {
     fetch(`http://localhost:5000/news-categories`)
       .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
+      .then((data) => setCategories(data))
+      .catch((error) => console.log(error));
   }, []);
   return (
     <div>
-      <h4>All Category</h4>
+      <h4>All Category : {categories.length}</h4>
     </div>
   );
 };
