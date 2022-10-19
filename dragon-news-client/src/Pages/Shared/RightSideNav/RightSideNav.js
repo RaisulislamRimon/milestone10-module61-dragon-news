@@ -9,6 +9,7 @@ import {
   FaWhatsapp,
   FaYoutube,
 } from "react-icons/fa";
+import BrandCarousel from "../BrandCarousel/BrandCarousel";
 
 const RightSideNav = () => {
   return (
@@ -46,6 +47,9 @@ const RightSideNav = () => {
           <ListGroupItem className="mb-2">Privacy Policy</ListGroupItem>
           <ListGroupItem className="mb-2">Terms & Condition</ListGroupItem>
         </ListGroup>
+      </div>
+      <div>
+        <BrandCarousel />
       </div>
     </div>
   );
