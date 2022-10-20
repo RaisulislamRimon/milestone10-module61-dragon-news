@@ -16,6 +16,7 @@ export const routes = createBrowserRouter([
       {
         path: "/category/:id",
         element: <Category />,
+        loader :  () => fetch(``)
       },
       {
         path: "/news/:id",
