@@ -3,11 +3,11 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
-import { FaRegBookmark, FaShareAlt } from "react-icons/fa";
+import { FaEye, FaRegBookmark, FaShareAlt, FaStar } from "react-icons/fa";
 
 const NewsSummaryCard = ({ news }) => {
   console.log(news);
-  const { _id, title, total_views, author, details, image_url } = news;
+  const { _id, title, total_view, author, details, image_url, rating } = news;
   return (
     <div>
       <Card className="mb-5">
@@ -43,7 +43,16 @@ const NewsSummaryCard = ({ news }) => {
           </Card.Text>
           <Button variant="primary">Go somewhere</Button>
         </Card.Body>
-        <Card.Footer className="text-muted">2 days ago</Card.Footer>
+        <Card.Footer className="d-flex justify-content-between">
+          <div>
+            <FaStar className="text-warning me-2" />
+            <span>{rating?.number}</span>
+          </div>
+          <div>
+            <FaEye className="me-2" />
+            <span>{total_view}</span>
+          </div>
+        </Card.Footer>
       </Card>
     </div>
   );
