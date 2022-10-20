@@ -50,6 +50,21 @@ const Header = () => {
               </NavDropdown>
             </Nav>
             <Nav>
+              <Nav.Link eventKey={2} href="#memes">
+                {user?.uid ? (
+                  <>
+                    <span>{user?.displayName}</span>
+                    <Button variant="light" onClick={handleLogOut}>
+                      Log out
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/login">Login</Link>
+                    <Link to="/register">Register</Link>
+                  </>
+                )}
+              </Nav.Link>
               <Nav.Link href="#deets">
                 {user?.uid ? (
                   <span>
@@ -64,21 +79,6 @@ const Header = () => {
                   <span>
                     <FaUser />
                   </span>
-                )}
-              </Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                {user?.uid ? (
-                  <>
-                    <span>{user?.displayName}</span>
-                    <Button variant="light" onClick={handleLogOut}>
-                      Log out
-                    </Button>
-                  </>
-                ) : (
-                  <>
-                    <Link to='/login'>Login</Link>
-                    <Link to='/register'>Register</Link>
-                  </>
                 )}
               </Nav.Link>
             </Nav>
