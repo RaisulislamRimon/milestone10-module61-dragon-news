@@ -9,7 +9,7 @@ const Home = () => {
     <div>
       <h2>Dragon News Home : {allNews.length}</h2>
       {allNews.map((news) => (
-        <NewsSummaryCard key={allNews._id} news={news}></NewsSummaryCard>
+        <NewsSummaryCard key={news._id} news={news}></NewsSummaryCard>
       ))}
     </div>
   );
