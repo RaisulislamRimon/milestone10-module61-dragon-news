@@ -8,10 +8,13 @@ const NewsSummaryCard = ({ news }) => {
   const { _id, title, total_views, author, details, image_url } = news;
   return (
     <div>
-      <Card className="text-center">
+      <Card className="">
         <Card.Header>Featured</Card.Header>
         <Card.Body>
           <Card.Title>
+            {title}
+          </Card.Title>
+          <Card.Text>
             {details.length > 200 ? (
               <p>
                 {details.slice(0, 200) + "..."}{" "}
@@ -20,10 +23,6 @@ const NewsSummaryCard = ({ news }) => {
             ) : (
               <p>{details}</p>
             )}
-          </Card.Title>
-          <Card.Text>
-            With supporting text below as a natural lead-in to additional
-            content.
           </Card.Text>
           <Button variant="primary">Go somewhere</Button>
         </Card.Body>
