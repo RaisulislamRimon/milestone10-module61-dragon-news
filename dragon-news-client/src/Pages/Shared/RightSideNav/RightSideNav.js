@@ -9,7 +9,9 @@ import {
   FaTwitter,
   FaWhatsapp,
   FaYoutube,
+  FaUserSecret,
 } from "react-icons/fa";
+import { VscTerminalTmux } from "react-icons/vsc";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import BrandCarousel from "../BrandCarousel/BrandCarousel";
 
@@ -63,8 +65,14 @@ const RightSideNav = () => {
             <FaDiscord />
             Discord
           </ListGroupItem>
-          <ListGroupItem className="mb-2">Privacy Policy</ListGroupItem>
-          <ListGroupItem className="mb-2">Terms & Condition</ListGroupItem>
+          <ListGroupItem className="mb-2">
+            <FaUserSecret />
+            Privacy Policy
+          </ListGroupItem>
+          <ListGroupItem className="mb-2">
+            <VscTerminalTmux />
+            Terms & Condition
+          </ListGroupItem>
         </ListGroup>
       </div>
       <div>
