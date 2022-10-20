@@ -15,16 +15,16 @@ const NewsSummaryCard = ({ news }) => {
           <div className="d-flex">
             <Image
               roundedCircle
-              src={author.img}
+              src={author?.img}
               style={{ height: "60px" }}
             ></Image>
             <div className=" ms-2">
-              <p>{author.name}</p>
-              <p>{author.published_date}</p>
+              <p className="mb-0">{author?.name}</p>
+              <p>{author?.published_date}</p>
             </div>
           </div>
           <div>
-            <FaRegBookmark />
+            <FaRegBookmark className="me-2" />
             <FaShareAlt />
           </div>
         </Card.Header>
