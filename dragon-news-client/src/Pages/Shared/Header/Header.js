@@ -7,10 +7,16 @@ import LeftSideNav from "../LeftSideNav/LeftSideNav";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import { FaUser } from "react-icons/fa";
-import { Image } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
   return (
     <>
       <Navbar
@@ -45,15 +51,35 @@ const Header = () => {
             </Nav>
             <Nav>
               <Nav.Link href="#deets">
-                <Image
-                  src={user?.photoURL ? user?.photoURL : <FaUser />}
-                  roundedCircle
-                  style={{ width: "30px" }}
-                  alt={user?.displayName}
-                />
+                {user?.uid ? (
+                  <span>
+                    <Image
+                      src={user?.photoURL ? user?.photoURL : <FaUser />}
+                      roundedCircle
+                      style={{ width: "30px" }}
+                      alt={user?.displayName}
+                    />
+                  </span>
+                ) : (
+                  <span>
+                    <FaUser />
+                  </span>
+                )}
               </Nav.Link>
               <Nav.Link eventKey={2} href="#memes">
-                {user?.displayName ? user?.displayName : "User"}
+                {user?.uid ? (
+                  <>
+                    <span>{user?.displayName}</span>
+                    <Button variant="light" onClick={handleLogOut}>
+                      Log out
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Link to='/login'>Login</Link>
+                    <Link to='/register'>Register</Link>
+                  </>
+                )}
               </Nav.Link>
             </Nav>
             <div className="d-lg-none">
